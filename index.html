@@ -53,7 +53,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="img" class="font-weight-bold">Photograph</label>
-                        <input type="file" class="form-control" id="img" accept="image/*">
+                        <input type="file" class="form-control" id="img" accept="image/*" onchange="loadFile(event)">
                     </div>
                 </div>
                 <div class="form-row">
@@ -67,13 +67,53 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="photo" class="font-weight-bold">Photograph</label>
-                        <input type="file" class="form-control" id="photo" accept="image/*">
+                        <input type="file" class="form-control" id="photo" accept="image/*" onchange="looadFile(event)">
                     </div>
                 </div>
-                <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                <button type="button" onclick="create()" id="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
+        <div class="show d-flex flex-column">
+            <h3 class="font-weight-bold ml-3 mt-5">
+                Student Data:
+            </h3>
+            <p class="ml-3 mt-3">
+                <strong>Name:</strong> <span id="outname"></span>.<br>
+                <strong>Age:</strong> <span id="outage"></span>.<br>
+                <strong>Gender:</strong> <span id="outgender"></span>.<br>
+                <strong>Image:</strong> <img id='outputt' style="height:100px; width:100px;"><br>
+                <strong>Date of Birth:</strong> <span id="outdob"></span>.<br>
+                <strong>Place of Birth:</strong> <span id="outpob"></span>.<br>
+                <strong>Photograph:</strong> <img id='output' style="height:100px; width:100px;"><br>
+            </p>
+        </div>
     </div>
+    <script>
+        var loadFile = function (event) {
+            var image = document.getElementById('output');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+        var looadFile = function (event) {
+            var image = document.getElementById('outputt');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+        function create() {
+
+            var input1 = document.getElementById('name').value;
+            var input2 = document.getElementById("age").value;
+            var input3 = document.getElementsByName("gender").value;
+            var input5 = document.getElementById("dob").value;
+            var input6 = document.getElementById("pob").value;
+
+            document.getElementById("outname").innerHTML = input1;
+            document.getElementById("outage").innerHTML = input2;
+            document.getElementById("outgender").innerHTML = input3;
+            document.getElementById("outdob").innerHTML = input5;
+            document.getElementById("outpob").innerHTML = input6;
+
+            console.log(input1);
+        };
+    </script>
 </body>
 
 </html>
