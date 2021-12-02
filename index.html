@@ -10,7 +10,7 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
-<body>
+<body style="background-color: aqua;">
     <div class="student" style="margin-top: 5rem;">
         <h1 class="text-center mb-5 font-weight-bold">Student Details</h1>
         <div class=" d-flex flex-column form align-items-center">
@@ -28,28 +28,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="gender" class="font-weight-bold">Gender</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gender" id="gender1" value="option1"
-                                checked>
-                            <label class="form-check-label" for="gender1"
-                                style="font-family: 'PT Sans Narrow', sans-serif;">
-                                Male
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gender" id="gender2" value="option2">
-                            <label class="form-check-label" for="gender2"
-                                style="font-family: 'PT Sans Narrow', sans-serif;">
-                                Female
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gender" id="gender3" value="option3">
-                            <label class="form-check-label" for="gender3"
-                                style="font-family: 'PT Sans Narrow', sans-serif;">
-                                Dont want to say
-                            </label>
-                        </div>
+                        <input type="text" class="form-control" id="gender" placeholder="Male,Female">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="img" class="font-weight-bold">Photograph</label>
@@ -58,7 +37,7 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                        <label for="dob" class="font-weight-bold">DOB</label>
+                        <label for="dob" class="font-weight-bold">Date of Birth</label>
                         <input type="date" class="form-control" id="dob">
                     </div>
                     <div class="form-group col-md-4">
@@ -70,22 +49,77 @@
                         <input type="file" class="form-control" id="photo" accept="image/*" onchange="looadFile(event)">
                     </div>
                 </div>
+                <h4 class="font-weight-bold">Matric</h4>
+                <div class="form-row">
+
+                    <div class="form-group col-md-6">
+                        <label for="matm" class="font-weight-bold">Marks</label>
+                        <input type="text" class="form-control" id="matm">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="matp" class="font-weight-bold">Percentage</label>
+                        <input type="text" class="form-control" id="matp">
+                    </div>
+                </div>
+                <h4 class="font-weight-bold">FSC</h4>
+                <div class="form-row">
+
+                    <div class="form-group col-md-6">
+                        <label for="fscm" class="font-weight-bold">Marks</label>
+                        <input type="text" class="form-control" id="fscm">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="fscp" class="font-weight-bold">Percentage</label>
+                        <input type="text" class="form-control" id="fscp">
+                    </div>
+                </div>
                 <button type="button" onclick="create()" id="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
-        <div class="show d-flex flex-column">
-            <h3 class="font-weight-bold ml-3 mt-5">
-                Student Data:
+        <p class="text-center mt-3">**************************************************************************</p>
+        <div class="show d-flex flex-column mt-3 align-items-center">
+            <h3 class="font-weight-bold ml-3 mt-5 text-center">
+                Student Data
             </h3>
-            <p class="ml-3 mt-3">
-                <strong>Name:</strong> <span id="outname"></span>.<br>
-                <strong>Age:</strong> <span id="outage"></span>.<br>
-                <strong>Gender:</strong> <span id="outgender"></span>.<br>
-                <strong>Image:</strong> <img id='outputt' style="height:100px; width:100px;"><br>
-                <strong>Date of Birth:</strong> <span id="outdob"></span>.<br>
-                <strong>Place of Birth:</strong> <span id="outpob"></span>.<br>
-                <strong>Photograph:</strong> <img id='output' style="height:100px; width:100px;"><br>
+            <p class="ml-3 mt-3 col-md-4">
+                <strong>Name:</strong> <span id="outname"></span>.
+                <strong>Age:</strong> <span id="outage"></span>.
+                <strong>Gender:</strong> <span id="outgender"></span>.
+                <strong>Image:</strong> <img id='output' style="height:100px; width:100px;"><br>
+                <strong>Date of Birth:</strong> <span id="outdob"></span>.
+                <strong>Place of Birth:</strong> <span id="outpob"></span>.
+                <strong>Photograph:</strong> <img id='outputt' style="height:100px; width:100px;"><br>
+                <strong style="font-size:x-large;">Matric</strong><br>
+                <strong>Marks:</strong> <span id="outmatm"></span>.
+                <strong>Percentage:</strong> <span id="outmatp"></span>.<br>
+                <strong style="font-size:x-large;">FSC</strong><br>
+                <strong>Marks:</strong> <span id="outfscm"></span>.
+                <strong>Percentage.</strong> <span id="outfscp"></span>.<br>
             </p>
+            <table class="table col-md-6">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Percentage</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Matric</td>
+                        <td><span id="mattp"></span></td>
+                        <td><span id="matr"></span></td>
+                    </tr>
+                    <tr>
+                        <td>FSC</td>
+                        <td><span id="fsctp"></span></td>
+                        <td><span id="fscr"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col text-center mt-3 mb-4">
+            <button type="button" class="btn btn-primary" href="experience.html">Experience</button>
         </div>
     </div>
     <script>
@@ -101,15 +135,71 @@
 
             var input1 = document.getElementById('name').value;
             var input2 = document.getElementById("age").value;
-            var input3 = document.getElementsByName("gender").value;
+            var input3 = document.getElementById("gender").value;
             var input5 = document.getElementById("dob").value;
             var input6 = document.getElementById("pob").value;
+            var input7 = document.getElementById("matm").value;
+            var input8 = document.getElementById("matp").value;
+            var input9 = document.getElementById("fscm").value;
+            var input10 = document.getElementById("fscp").value;
 
+            document.getElementById("mattp").innerHTML = input8;
             document.getElementById("outname").innerHTML = input1;
             document.getElementById("outage").innerHTML = input2;
             document.getElementById("outgender").innerHTML = input3;
             document.getElementById("outdob").innerHTML = input5;
             document.getElementById("outpob").innerHTML = input6;
+            document.getElementById("outmatm").innerHTML = input7;
+            document.getElementById("outmatp").innerHTML = input8;
+            document.getElementById("outfscm").innerHTML = input9;
+            document.getElementById("outfscp").innerHTML = input10;
+            document.getElementById("fsctp").innerHTML = input10;
+
+            if (input8 >= 90) {
+                var exc = "Excellent";
+                document.getElementById("matr").innerHTML = exc;
+            } else if (input8 > 80 && input8 < 90) {
+                var exc = "Very Good";
+                document.getElementById("matr").innerHTML = exc;
+            } else if (input8 > 75 && input8 < 80) {
+                var exc = "Good";
+                document.getElementById("matr").innerHTML = exc;
+            } else if (input8 > 60 && input8 < 75) {
+                var exc = "First Class";
+                document.getElementById("matr").innerHTML = exc;
+            } else if (input8 > 50 && input8 < 60) {
+                var exc = "Second Class";
+                document.getElementById("matr").innerHTML = exc;
+            } else if (input8 > 40 && input8 < 50) {
+                var exc = "Third Class";
+                document.getElementById("matr").innerHTML = exc;
+            } else if (input8 < 40) {
+                var exc = "Fail";
+                document.getElementById("matr").innerHTML = exc;
+            }
+
+            if (input10 >= 90) {
+                var exc = "Excellent";
+                document.getElementById("fscr").innerHTML = exc;
+            } else if (input10 > 80 && input10 < 90) {
+                var exc = "Very Good";
+                document.getElementById("fscr").innerHTML = exc;
+            } else if (input10 > 75 && input10 < 80) {
+                var exc = "Good";
+                document.getElementById("fscr").innerHTML = exc;
+            } else if (input10 > 60 && input10 < 75) {
+                var exc = "First Class";
+                document.getElementById("fscr").innerHTML = exc;
+            } else if (input10 > 50 && input10 < 60) {
+                var exc = "Second Class";
+                document.getElementById("fscr").innerHTML = exc;
+            } else if (input10 > 40 && input10 < 50) {
+                var exc = "Third Class";
+                document.getElementById("fscr").innerHTML = exc;
+            } else if (input10 < 40) {
+                var exc = "Fail";
+                document.getElementById("fscr").innerHTML = exc;
+            }
 
             console.log(input1);
         };
